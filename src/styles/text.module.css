@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
+@value font-white: #ffffff;
+@value font-blue: #2a45c2;
+@value font-red: #db2e4d;
+@value font-darkGrey: #565468;
+@value font-lightGray: #B1B4C5;
+@value font-bold: 700;
+@value font-semiBold: 600;
+
+.text {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  text-transform: uppercase;
+  color: font-white;
+}
+
+.headerTitle {
+  composes: text;
+  font-weight: font-bold;
+  font-size: clamp(21px, 40px, 1.1em);
+  line-height: clamp(21px, 40px, 1.1em);
+}
+
+.scoreTitle {
+  composes: text;
+  font-weight: font-semiBold;
+  font-size: clamp(10px, 16px, 0.5em);
+  line-height: clamp(10px, 16px, 0.5em);
+  color: font-blue;
+}
+
+.scoreResult {
+  composes: text;
+  font-size: clamp(40px, 64px, 1.8em);
+  line-height: clamp(40px, 64px, 1.8em);
+  color: font-darkGrey;
+}
+
+.gameTitle {
+  composes: text;
+  font-size: clamp(15px, 24px, 0.8em);
+  line-height: clamp(15px, 24px, 0.8em);
+}
+
+.gameResult {
+  composes: text;
+  font-size: 56px;
+}
+
+.rulesTitle {
+  composes: scoreResult;
+  font-size: 32px;
+  line-height: 32px;
+}
+
+.rulesInfo {
+  composes: rulesTitle;
+  font-size: 13px;
+  line-height: 13px;
+  color: font-lightGray;
+}
+
+.buttonTitle {
+  composes: text;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: font-semiBold;
+  letter-spacing: 2.5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.buttonTitle:hover {
+	color: font-darkGrey;
+}
+
+.buttonTitleRestart {
+  composes: buttonTitle;
+  color: font-darkGrey;
+}
+
+.buttonTitleRestart:hover {
+  color: font-red;
+}
+
+.test {
+  width: 500px;
+}

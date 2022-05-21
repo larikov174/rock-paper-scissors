@@ -1,6 +1,7 @@
-import { useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { useState } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import { headerTitle, scoreTitle, scoreResult, gameTitle, gameResult, rulesTitle, rulesInfo, buttonTitle, buttonTitleRestart, test } from './styles/text.module.css';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -8,9 +9,18 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
+        <p className={headerTitle}>Hello Vite + React!</p>
+        <p className={scoreTitle}>Hello Vite + React!</p>
+        <p className={scoreResult}>Hello Vite + React!</p>
+        <p className={gameTitle}>Hello Vite + React!</p>
+        <p className={gameResult}>Hello Vite + React!</p>
+        <p className={rulesTitle}>Hello Vite + React!</p>
+        <p className={rulesInfo}>Hello Vite + React!</p>
         <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
+          <button className={`${buttonTitle} ${test}`} type="button" onClick={() => setCount((count) => count + 1)}>
+            count is: {count}
+          </button>
+          <button className={buttonTitleRestart} type="button" onClick={() => setCount((count) => count + 1)}>
             count is: {count}
           </button>
         </p>
@@ -22,17 +32,15 @@ function App() {
             className="App-link"
             href="https://reactjs.org"
             target="_blank"
-            rel="noopener noreferrer"
-          >
+            rel="noopener noreferrer">
             Learn React
           </a>
-          {" | "}
+          {' | '}
           <a
             className="App-link"
             href="https://vitejs.dev/guide/features.html"
             target="_blank"
-            rel="noopener noreferrer"
-          >
+            rel="noopener noreferrer">
             Vite Docs
           </a>
         </p>
