@@ -1,0 +1,26 @@
+.mainContainer {
+	display: flex;
+}
+
+.titleContainer {
+
+}
+
+.scoreContainer {
+	display: flex;
+	flex-direction: column;
+}
+
+.mainTitle {
+
+}
+
+.scoreTitle {
+
+}
+
+.scoreResult {
+
+}
+
+

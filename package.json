@@ -8,8 +8,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "babel-plugin-styled-components": "^2.0.7",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
@@ -29,5 +31,6 @@
     "postcss-scss": "^4.0.4",
     "prettier": "^2.6.2",
     "vite": "^2.9.9"
-  }
+  },
+  "packageManager": "yarn@3.2.1"
 }
