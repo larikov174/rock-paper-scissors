@@ -13,7 +13,7 @@
 body {
   background: radial-gradient(134.34% 134.34% at 50% 0%, #1f3757 0%, #131537 100%);
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   flex-direction: column;
 }

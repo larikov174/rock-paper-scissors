@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Header from './Header';
+import Game from './Game';
 
 const MainPage = styled.div`
   width: min(938px, 100%);
@@ -13,7 +14,7 @@ const App = () => {
   return (
     <MainPage>
       <Header />
-      {/* <Game /> */}
+      <Game />
       {/* <Footer /> */}
     </MainPage>
   );

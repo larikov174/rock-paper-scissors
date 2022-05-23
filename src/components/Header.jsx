@@ -5,7 +5,7 @@ const MainContainer = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 0 32px;
-  margin: 48px auto;
+  margin: 48px auto 0;
   border: 3px solid rgba(255, 255, 255, 0.28);
   border-radius: 15px;
   width: min(700px, calc(100% - 64px));
