@@ -35,9 +35,9 @@ const Image = styled.img`
 const PickScreen = () => {
   return (
     <Container>
-      <Image src={paper} position="relative" top="-90px" left="-50%" />
+      <Image src={rock} position="relative" top="-90px" left="-50%" />
       <Image src={scissors} position="relative" top="-90px" left="0%" />
-      <Image src={rock} position="relative" top="130px" left="-360px" />
+      <Image src={paper} position="relative" top="130px" left="-360px" />
     </Container>
   );
 };
