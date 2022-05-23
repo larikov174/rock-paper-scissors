@@ -29,6 +29,10 @@ const Rules = styled.button`
     will-change: transform;
     transition: opacity 0.4s;
   }
+	&:active {
+		text-shadow: 1px -5px 12px #bbbbbb;
+		box-shadow: 0 0 12px #bbbbbb;
+	}
 `;
 
 const Footer = () => {

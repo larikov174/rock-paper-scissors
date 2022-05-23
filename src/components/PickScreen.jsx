@@ -27,6 +27,9 @@ const Image = styled.img`
     will-change: transform;
     transition: box-shadow 0.3s;
   }
+	&:active {
+		box-shadow: 0 0 20px #bbbbbb;
+	}
 `;
 
 const PickScreen = () => {
