@@ -35,7 +35,12 @@ const ScoreContainer = styled.div`
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.196706);
   border-radius: 8px;
   width: clamp(80px, 150px, 25vw);
-  height: clamp(80px, 115px, 25vw);
+  /* height: clamp(80px, 115px, 25vw); */
+  padding: 16px;
+  @media screen and (max-width: 375px) {
+		margin-left: 10px;
+    padding: 10px;
+  }
 `;
 const ScoreTitle = styled.p`
   font-size: clamp(10px, 16px, 5vw);
