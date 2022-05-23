@@ -24,6 +24,8 @@ const Image = styled.img`
   &:hover {
     box-shadow: 0 0 10px 30px #ffffff24;
     cursor: pointer;
+    will-change: transform;
+    transition: box-shadow 0.3s;
   }
 `;
 

@@ -26,10 +26,8 @@ const Rules = styled.button`
   &:hover {
     cursor: pointer;
     opacity: 0.7;
-    transition: opacity 0.15s ease-in;
-    transform: scale(1.001);
     will-change: transform;
-    transition: 0.3s;
+    transition: opacity 0.4s;
   }
 `;
 
