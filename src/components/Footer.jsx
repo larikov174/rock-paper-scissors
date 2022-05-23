@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 
 const Container = styled.footer`
-  width: 100%;
+  position: fixed;
+  bottom: 0;
+	width: 100%;
+  max-width: 700px;
   min-height: 100px;
-  margin: 0 32px;
+  padding: 0 32px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
@@ -29,10 +32,10 @@ const Rules = styled.button`
     will-change: transform;
     transition: opacity 0.4s;
   }
-	&:active {
-		text-shadow: 1px -5px 12px #bbbbbb;
-		box-shadow: 0 0 12px #bbbbbb;
-	}
+  &:active {
+    text-shadow: 1px -5px 12px #bbbbbb;
+    box-shadow: 0 0 12px #bbbbbb;
+  }
 `;
 
 const Footer = () => {
