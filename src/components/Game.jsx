@@ -1,18 +1,20 @@
 import styled from 'styled-components';
 import PickScreen from './PickScreen';
+import GambleScreen from './GambleScreen';
 
 const GameContainer = styled.article`
   width: 100%;
   min-height: 350px;
-	margin-top: 164px;
+  margin-top: 164px;
   display: flex;
-	justify-content: center;
+  justify-content: center;
 `;
 
 const Game = () => {
   return (
     <GameContainer>
-      <PickScreen />
+      {/* <PickScreen /> */}
+      <GambleScreen />
     </GameContainer>
   );
 };
