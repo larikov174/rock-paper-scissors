@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 
 const Container = styled.footer`
-  position: fixed;
-  bottom: 0;
 	width: 100%;
-  max-width: 700px;
   min-height: 100px;
   padding: 0 32px;
+	margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;

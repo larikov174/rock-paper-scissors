@@ -8,7 +8,7 @@ const MainContainer = styled.header`
   margin: 48px auto 0;
   border: 3px solid rgba(255, 255, 255, 0.28);
   border-radius: 15px;
-  width: min(700px, calc(100% - 64px));
+  width: 100%;
   min-height: 150px;
   @media screen and (max-width: 800px) {
     padding: 0 23px;

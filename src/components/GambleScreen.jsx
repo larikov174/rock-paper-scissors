@@ -4,9 +4,11 @@ import paper from '../assets/paper.svg';
 import scissors from '../assets/scissors.svg';
 
 const Container = styled.section`
-  width: min(254px, calc(100% - 64px));
+  width: 100%;
   height: clamp(188px, 287px, 50vw);
   display: grid;
+	justify-items: center;
+	padding: 0 32px;
   grid-template-columns: repeat(3,1fr);
   grid-template-rows: 1fr 4fr;
   grid-template-areas:
@@ -35,6 +37,7 @@ const Image = styled.img`
 
 const Title = styled.p`
   grid-area: ${(props) => props.area};
+	align-self: center;
 `;
 
 const GambleScreen = () => {
@@ -44,7 +47,7 @@ const GambleScreen = () => {
       <Image src={rock} area="playerPickImage" />
       <Title area="housePickText">Компьютер выбрал</Title>
       <Image src={paper} area="housePickImage" />
-      <Image src={scissors} area="resultArea" />
+      {/* <Image src={scissors} area="resultArea" /> */}
     </Container>
   );
 };

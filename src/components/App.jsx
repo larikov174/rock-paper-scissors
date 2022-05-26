@@ -4,7 +4,7 @@ import Game from './Game';
 import Footer from './Footer';
 
 const MainPage = styled.div`
-  width: min(938px, 100%);
+  width: min(900px, 100%);
 	height: 100vh;
   margin: 0 auto;
   display: flex;
