@@ -15,17 +15,10 @@ const MainPage = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-const GameContainer = styled.article`
-  width: 100%;
-  min-height: 350px;
-  margin-top: 164px;
-  display: flex;
-  justify-content: center;
-`;
 
 const App = () => {
   const navigate = useNavigate();
-  const [imagePick, setImagePick] = useState(null);
+  const [imagePick, setImagePick] = useState('rock');
   const handleImagePick = ({ id }) => {
     setImagePick(id);
     navigate('game');

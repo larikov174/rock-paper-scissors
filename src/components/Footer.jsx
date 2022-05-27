@@ -11,6 +11,7 @@ const Container = styled.footer`
   grid-template-rows: 1fr;
   grid-template-areas: 'credits rules';
 `;
+
 const Credential = styled.p`
   grid-area: credits;
   text-transform: none;

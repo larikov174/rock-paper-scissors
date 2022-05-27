@@ -56,6 +56,7 @@ const StyledTitle = styled(Title)`
   font-size: clamp(50px, 56px, 5vw);
   font-weight: 700;
 `;
+
 const StyledButton = styled.button`
   grid-area: actionButton;
   color: #3b4262;

@@ -17,15 +17,18 @@ const MainContainer = styled.header`
     border-radius: 5px;
   }
 `;
+
 const TitleContainer = styled.h1`
   display: flex;
   flex-direction: column;
 `;
+
 const MainTitle = styled.span`
   font-weight: 700;
   font-size: clamp(21px, 40px, 5vw);
   line-height: clamp(16px, 32px, 1em);
 `;
+
 const ScoreContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -35,18 +38,19 @@ const ScoreContainer = styled.div`
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.196706);
   border-radius: 8px;
   width: clamp(80px, 150px, 25vw);
-  /* height: clamp(80px, 115px, 25vw); */
   padding: 16px;
   @media screen and (max-width: 375px) {
-		margin-left: 10px;
+    margin-left: 10px;
     padding: 10px;
   }
 `;
+
 const ScoreTitle = styled.p`
   font-size: clamp(10px, 16px, 5vw);
   line-height: clamp(12px, 19px, 0.5em);
   color: #2a45c2;
 `;
+
 const ScoreResult = styled.p`
   font-weight: 700;
   font-size: clamp(40px, 64px, 18vw);
