@@ -30,12 +30,13 @@ const Rules = styled.button`
   &:hover {
     cursor: pointer;
     opacity: 0.7;
-    will-change: transform;
+    will-change: opacity;
     transition: opacity 0.4s;
   }
   &:active {
     text-shadow: 1px -5px 12px #bbbbbb;
     box-shadow: 0 0 12px #bbbbbb;
+		transition: box-shadow 0.1s, text-shadow 0.1s;
   }
 `;
 

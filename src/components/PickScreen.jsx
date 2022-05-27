@@ -6,13 +6,13 @@ import scissors from '../assets/scissors.svg';
 const Container = styled.svg`
   width: 100%;
   height: auto;
-	transform: translateY(min(10vw, 100px));
+	transform: translateY(min(5vw, 50px));
 `;
 
 const StyledCircle = styled.circle`
   &:hover {
     box-shadow: 0 0 10px 30px #ffffff24;
-		filter: drop-shadow(0 0 20px rgb(255 255 255 / 0.4));
+		filter: drop-shadow(0 0 30px rgb(255 255 255 / 0.4));
     cursor: pointer;
     will-change: opacity;
     transition: filter 0.3s;
@@ -60,10 +60,10 @@ const PickScreen = ({ onImagePick }) => {
             <image width="100" height="100" href={paper} />
           </pattern>
         </defs>
-				<polyline points="300,150 600,150 450,450 300,150" style={{fill: 'none'}} stroke='#0000003b' strokeWidth='20'/>
-        <StyledCircle cx={300} cy={150} r={120} fill="url(#rock)" />
-        <StyledCircle cx={600} cy={150} r={120} fill="url(#scissors)" />
-        <StyledCircle cx={450} cy={450} r={120} fill="url(#paper)" />	
+				<polyline points="300,200 600,200 450,500 300,200" style={{fill: 'none'}} stroke='#0000003b' strokeWidth='20'/>
+        <StyledCircle cx={300} cy={200} r={120} fill="url(#rock)" />
+        <StyledCircle cx={600} cy={200} r={120} fill="url(#scissors)" />
+        <StyledCircle cx={450} cy={500} r={120} fill="url(#paper)" />	
       </Container>
   );
 };
