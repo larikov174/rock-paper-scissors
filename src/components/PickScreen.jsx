@@ -39,9 +39,9 @@ const PickScreen = ({ onImagePick }) => {
   return (
     <>
       <Container>
-        <Image id="ROCK" src={rock} position="relative" top="-90px" left="-50%" onClick={onClickNavigation} />
-        <Image id="SCISSORS" src={scissors} position="relative" top="-90px" left="0%" onClick={onClickNavigation} />
-        <Image src={paper} position="relative" top="130px" left="-360px" onClick={onClickNavigation} />
+        <Image id="rock" src={rock} position="relative" top="-90px" left="-50%" onClick={onClickNavigation} />
+        <Image id="scissors" src={scissors} position="relative" top="-90px" left="0%" onClick={onClickNavigation} />
+        <Image id="paper" src={paper} position="relative" top="130px" left="-360px" onClick={onClickNavigation} />
       </Container>
       {/* <svg>
         <defs>

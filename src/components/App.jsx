@@ -37,7 +37,7 @@ const App = () => {
       <ImageContext.Provider value={imagePick}>
         <Routes>
           <Route path="/" element={<PickScreen onImagePick={handleImagePick} />} />
-          <Route path="game" element={<GambleScreen image={imagePick} />} />
+          <Route path="game" element={<GambleScreen imageName={imagePick} />} />
         </Routes>
       </ImageContext.Provider>
       <Footer />

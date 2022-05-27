@@ -1,3 +1,4 @@
+import { useNavigate} from 'react-router-dom';
 import styled from 'styled-components';
 import rock from '../assets/rock.svg';
 import paper from '../assets/paper.svg';
@@ -69,16 +70,18 @@ const StyledButton = styled.button`
   }
 `;
 
-const GambleScreen = ({ image }) => {
-  console.log(image);
+const GambleScreen = ({ imageName }) => {
+  const navigate = useNavigate();
+	const handleClick = () => navigate('/');
+
   return (
     <Container>
       <Title area="playerPickText">Ты выбрал</Title>
-      <Image src={rock} area="playerPickImage" />
+      <Image src={`src/assets/${imageName}.svg`} area="playerPickImage" />
       <Title area="housePickText">Компьютер выбрал</Title>
       <Image src={paper} area="housePickImage" />
       <StyledTitle area="resultTitle">Проиграл!</StyledTitle>
-      <StyledButton type="button">Играем ещё?</StyledButton>
+      <StyledButton type="button" onClick={handleClick}>Играем ещё?</StyledButton>
     </Container>
   );
 };
