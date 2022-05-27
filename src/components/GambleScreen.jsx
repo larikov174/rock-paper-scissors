@@ -1,8 +1,6 @@
-import { useNavigate} from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import rock from '../assets/rock.svg';
-import paper from '../assets/paper.svg';
-import scissors from '../assets/scissors.svg';
 
 const Container = styled.section`
   width: 100%;
@@ -72,16 +70,20 @@ const StyledButton = styled.button`
 
 const GambleScreen = ({ imageName }) => {
   const navigate = useNavigate();
-	const handleClick = () => navigate('/');
+  const handleClick = () => navigate('/');
+  const imageArray = ['rock', 'paper', 'scissors'];
+  const random = () => Math.floor(Math.random() * 3);
 
   return (
     <Container>
       <Title area="playerPickText">Ты выбрал</Title>
       <Image src={`src/assets/${imageName}.svg`} area="playerPickImage" />
       <Title area="housePickText">Компьютер выбрал</Title>
-      <Image src={paper} area="housePickImage" />
+      <Image src={`src/assets/${imageArray[random()]}.svg`} area="housePickImage" />
       <StyledTitle area="resultTitle">Проиграл!</StyledTitle>
-      <StyledButton type="button" onClick={handleClick}>Играем ещё?</StyledButton>
+      <StyledButton type="button" onClick={handleClick}>
+        Играем ещё?
+      </StyledButton>
     </Container>
   );
 };
