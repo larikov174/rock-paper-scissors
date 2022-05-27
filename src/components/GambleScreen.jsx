@@ -7,13 +7,24 @@ const Container = styled.section`
   width: 100%;
   height: clamp(188px, 287px, 50vw);
   display: grid;
-	justify-items: center;
-	padding: 0 32px;
-  grid-template-columns: repeat(3,1fr);
-  grid-template-rows: 1fr 4fr;
+  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
   grid-template-areas:
-    'playerPickText resultArea housePickText'
-    'playerPickImage resultArea housePickImage';
+    'playerPickText ... housePickText'
+    'playerPickImage resultTitle housePickImage'
+    'playerPickImage actionButton housePickImage'
+    'playerPickImage ... housePickImage';
+		@media screen and (max-width: 700px) {
+			grid-row-gap: 20px;
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: 2fr repeat(3, 1fr);
+			grid-template-areas:
+			'playerPickImage housePickImage'
+			'playerPickText housePickText'
+			'resultTitle resultTitle'
+			'actionButton actionButton'
+		}
 `;
 
 const Image = styled.img`
@@ -36,8 +47,26 @@ const Image = styled.img`
 `;
 
 const Title = styled.p`
+  text-align: center;
+  align-self: center;
+  font-size: clamp(16px, 24px, 5vw);
   grid-area: ${(props) => props.area};
-	align-self: center;
+`;
+
+const StyledTitle = styled(Title)`
+  font-size: clamp(50px, 56px, 5vw);;
+  font-weight: 700;
+`;
+const StyledButton = styled.button`
+  grid-area: actionButton;
+  color: #3b4262;
+  font-size: 16px;
+  letter-spacing: 2.5px;
+  width: 220px;
+  height: 48px;
+	&:hover {
+		cursor: pointer;
+	}
 `;
 
 const GambleScreen = () => {
@@ -47,6 +76,8 @@ const GambleScreen = () => {
       <Image src={rock} area="playerPickImage" />
       <Title area="housePickText">Компьютер выбрал</Title>
       <Image src={paper} area="housePickImage" />
+      <StyledTitle area="resultTitle">Проиграл!</StyledTitle>
+      <StyledButton type="button">Играем ещё?</StyledButton>
       {/* <Image src={scissors} area="resultArea" /> */}
     </Container>
   );
