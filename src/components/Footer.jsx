@@ -4,6 +4,7 @@ const Container = styled.footer`
 	position: absolute;
 	bottom: 0;
 	width: 100%;
+	max-width: 900px;
   min-height: 100px;
   padding: 0 32px;
 	margin-top: 100px;

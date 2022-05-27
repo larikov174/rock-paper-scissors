@@ -69,7 +69,8 @@ const StyledButton = styled.button`
 	}
 `;
 
-const GambleScreen = () => {
+const GambleScreen = ({image}) => {
+	console.log(image)
   return (
     <Container>
       <Title area="playerPickText">Ты выбрал</Title>
@@ -78,7 +79,6 @@ const GambleScreen = () => {
       <Image src={paper} area="housePickImage" />
       <StyledTitle area="resultTitle">Проиграл!</StyledTitle>
       <StyledButton type="button">Играем ещё?</StyledButton>
-      {/* <Image src={scissors} area="resultArea" /> */}
     </Container>
   );
 };
