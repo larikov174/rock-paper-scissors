@@ -1,25 +1,23 @@
 import styled from 'styled-components';
 
 const Container = styled.footer`
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	max-width: 900px;
-  min-height: 100px;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
   padding: 0 32px;
-	margin-top: 100px;
+	margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
-  grid-template-areas:
-    'credits'
-    'rules';
+  grid-template-areas: 'credits rules';
 `;
 const Credential = styled.p`
   grid-area: credits;
   text-transform: none;
 `;
+
 const Rules = styled.button`
+  grid-area: rules;
   width: 128px;
   height: 40px;
   background-color: transparent;
@@ -36,14 +34,15 @@ const Rules = styled.button`
   &:active {
     text-shadow: 1px -5px 12px #bbbbbb;
     box-shadow: 0 0 12px #bbbbbb;
-		transition: box-shadow 0.1s, text-shadow 0.1s;
+    transition: box-shadow 0.1s, text-shadow 0.1s;
   }
 `;
 
 const Footer = () => {
+  const currentDate = new Date();
   return (
     <Container>
-      <Credential>2022.Андрей Лариков(c)</Credential>
+      <Credential>&copy; {currentDate.getFullYear()} Андрей Лариков</Credential>
       <Rules>правила</Rules>
     </Container>
   );
