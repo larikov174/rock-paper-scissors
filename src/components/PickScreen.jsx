@@ -1,34 +1,24 @@
 import styled from 'styled-components';
-import triangle from '../assets/triangle.svg';
 import rock from '../assets/rock.svg';
 import paper from '../assets/paper.svg';
 import scissors from '../assets/scissors.svg';
 
-const Container = styled.section`
-  width: min(254px, calc(100% - 64px));
-  height: clamp(188px, 287px, 50vw);
-  display: flex;
-  background-image: url(${triangle});
-  background-size: contain;
-  background-position: top;
-  background-repeat: no-repeat;
+const Container = styled.svg`
+  width: 100%;
+  height: auto;
+	transform: translateY(min(10vw, 100px));
 `;
 
-const Image = styled.img`
-  width: clamp(100px, 200px, 50vw);
-  height: clamp(100px, 200px, 50vw);
-  position: ${(props) => props.position};
-  left: ${(props) => props.left};
-  top: ${(props) => props.top};
-  border-radius: 50%;
+const StyledCircle = styled.circle`
   &:hover {
     box-shadow: 0 0 10px 30px #ffffff24;
+		filter: drop-shadow(0 0 20px rgb(255 255 255 / 0.4));
     cursor: pointer;
-    will-change: transform;
-    transition: box-shadow 0.3s;
+    will-change: opacity;
+    transition: filter 0.3s;
   }
   &:active {
-    box-shadow: 0 0 20px #bbbbbb;
+    filter: drop-shadow(0 0 20px rgb(187 187 187));
   }
 `;
 
@@ -37,16 +27,10 @@ const PickScreen = ({ onImagePick }) => {
     onImagePick({ id: e.target.id });
   };
   return (
-    <>
-      <Container>
-        <Image id="rock" src={rock} position="relative" top="-90px" left="-50%" onClick={onClickNavigation} />
-        <Image id="scissors" src={scissors} position="relative" top="-90px" left="0%" onClick={onClickNavigation} />
-        <Image id="paper" src={paper} position="relative" top="130px" left="-360px" onClick={onClickNavigation} />
-      </Container>
-      {/* <svg>
+      <Container viewBox="0 0 900 900">
         <defs>
           <pattern
-            id="imgpattern"
+            id="rock"
             x="0"
             y="0"
             width="1"	
@@ -55,10 +39,32 @@ const PickScreen = ({ onImagePick }) => {
             preserveAspectRatio="xMidYMid slice">
             <image width="100" height="100" href={rock} />
           </pattern>
+          <pattern
+            id="scissors"
+            x="0"
+            y="0"
+            width="1"	
+            height="1"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="xMidYMid slice">
+            <image width="100" height="100" href={scissors} />
+          </pattern>
+          <pattern
+            id="paper"
+            x="0"
+            y="0"
+            width="1"	
+            height="1"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="xMidYMid slice">
+            <image width="100" height="100" href={paper} />
+          </pattern>
         </defs>
-        <circle cx={350} cy={50} r={100} fill="url(#imgpattern)" />
-      </svg> */}
-    </>
+				<polyline points="300,150 600,150 450,450 300,150" style={{fill: 'none'}} stroke='#0000003b' strokeWidth='20'/>
+        <StyledCircle cx={300} cy={150} r={120} fill="url(#rock)" />
+        <StyledCircle cx={600} cy={150} r={120} fill="url(#scissors)" />
+        <StyledCircle cx={450} cy={450} r={120} fill="url(#paper)" />	
+      </Container>
   );
 };
 
