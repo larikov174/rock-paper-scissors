@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import ImageContext from '../context/ImageContext';
 import styled from 'styled-components';
@@ -24,22 +24,22 @@ const GameContainer = styled.article`
 `;
 
 const App = () => {
-	const navigate = useNavigate();
-	const [imagePick, setImagePick] = useState(null);
-	const handleImagePick = ({id}) => {
-		setImagePick(id);
-		navigate('game')
-	}
+  const navigate = useNavigate();
+  const [imagePick, setImagePick] = useState(null);
+  const handleImagePick = ({ id }) => {
+    setImagePick(id);
+    navigate('game');
+  };
 
   return (
     <MainPage>
       <Header />
-			<ImageContext.Provider value={imagePick}>
-      <Routes>
-        <Route path="/" element={<PickScreen onImagePick={handleImagePick}/>} />
-        <Route path="game" element={<GambleScreen image={imagePick}/>} />
-      </Routes>
-			</ImageContext.Provider>
+      <ImageContext.Provider value={imagePick}>
+        <Routes>
+          <Route path="/" element={<PickScreen onImagePick={handleImagePick} />} />
+          <Route path="game" element={<GambleScreen image={imagePick} />} />
+        </Routes>
+      </ImageContext.Provider>
       <Footer />
     </MainPage>
   );

@@ -15,16 +15,16 @@ const Container = styled.section`
     'playerPickImage resultTitle housePickImage'
     'playerPickImage actionButton housePickImage'
     'playerPickImage ... housePickImage';
-		@media screen and (max-width: 700px) {
-			grid-row-gap: 20px;
-			grid-template-columns: repeat(2, 1fr);
-			grid-template-rows: 2fr repeat(3, 1fr);
-			grid-template-areas:
-			'playerPickImage housePickImage'
-			'playerPickText housePickText'
-			'resultTitle resultTitle'
-			'actionButton actionButton'
-		}
+  @media screen and (max-width: 700px) {
+    grid-row-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 2fr repeat(3, 1fr);
+    grid-template-areas:
+      'playerPickImage housePickImage'
+      'playerPickText housePickText'
+      'resultTitle resultTitle'
+      'actionButton actionButton';
+  }
 `;
 
 const Image = styled.img`
@@ -54,7 +54,7 @@ const Title = styled.p`
 `;
 
 const StyledTitle = styled(Title)`
-  font-size: clamp(50px, 56px, 5vw);;
+  font-size: clamp(50px, 56px, 5vw);
   font-weight: 700;
 `;
 const StyledButton = styled.button`
@@ -64,13 +64,13 @@ const StyledButton = styled.button`
   letter-spacing: 2.5px;
   width: 220px;
   height: 48px;
-	&:hover {
-		cursor: pointer;
-	}
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
-const GambleScreen = ({image}) => {
-	console.log(image)
+const GambleScreen = ({ image }) => {
+  console.log(image);
   return (
     <Container>
       <Title area="playerPickText">Ты выбрал</Title>

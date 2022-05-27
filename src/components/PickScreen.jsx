@@ -32,17 +32,16 @@ const Image = styled.img`
   }
 `;
 
-const PickScreen = ({onImagePick}) => {
-
-	const onClickNavigation = (e) => {
-		onImagePick({id:e.target.id})
-	}
+const PickScreen = ({ onImagePick }) => {
+  const onClickNavigation = (e) => {
+    onImagePick({ id: e.target.id });
+  };
   return (
     <>
       <Container>
-        <Image id="ROCK" src={rock} position="relative" top="-90px" left="-50%" onClick={onClickNavigation}/>
-        <Image id="SCISSORS" src={scissors} position="relative" top="-90px" left="0%" onClick={onClickNavigation}/>
-        <Image src={paper} position="relative" top="130px" left="-360px" onClick={onClickNavigation}/>
+        <Image id="ROCK" src={rock} position="relative" top="-90px" left="-50%" onClick={onClickNavigation} />
+        <Image id="SCISSORS" src={scissors} position="relative" top="-90px" left="0%" onClick={onClickNavigation} />
+        <Image src={paper} position="relative" top="130px" left="-360px" onClick={onClickNavigation} />
       </Container>
       {/* <svg>
         <defs>
