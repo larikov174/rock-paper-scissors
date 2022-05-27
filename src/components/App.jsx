@@ -6,6 +6,7 @@ import Header from './Header';
 import PickScreen from './PickScreen';
 import GambleScreen from './GambleScreen';
 import Footer from './Footer';
+import Modal from './Modal';
 
 const MainPage = styled.div`
   width: min(900px, 100%);
@@ -34,6 +35,7 @@ const App = () => {
         </Routes>
       </ImageContext.Provider>
       <Footer />
+			<Modal />
     </MainPage>
   );
 };
