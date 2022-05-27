@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Container = styled.section`
   width: 100%;
-  height: clamp(188px, 287px, 50vw);
+	margin-top: 50px;
   display: grid;
   justify-items: center;
   grid-template-columns: repeat(3, 1fr);
@@ -28,8 +28,8 @@ const Container = styled.section`
 
 const Image = styled.img`
   grid-area: ${(props) => props.area};
-  width: clamp(100px, 200px, 50vw);
-  height: clamp(100px, 200px, 50vw);
+  width: clamp(150px, 300px, 30vw);
+  height: clamp(150px, 300px, 30vw);
   position: ${(props) => props.position};
   left: ${(props) => props.left};
   top: ${(props) => props.top};
