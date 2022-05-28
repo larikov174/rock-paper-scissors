@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -68,18 +69,22 @@ const StyledButton = styled.button`
   }
 `;
 
-const GambleScreen = ({ imageName }) => {
+const GambleScreen = ({ playerPick }) => {
   const navigate = useNavigate();
   const handleClick = () => navigate('/');
   const imageArray = ['rock', 'paper', 'scissors'];
-  const random = () => Math.floor(Math.random() * 3);
+	const [npcPick, setNpcPick] = useState(0);
+	
+	useEffect(() => {
+		setNpcPick(() => Math.floor(Math.random() * 3));
+	},[])
 
   return (
     <Container>
       <Title area="playerPickText">Ты выбрал</Title>
-      <Image src={`src/assets/${imageName}.svg`} area="playerPickImage" />
+      <Image src={`src/assets/${playerPick}.svg`} area="playerPickImage" />
       <Title area="housePickText">Компьютер выбрал</Title>
-      <Image src={`src/assets/${imageArray[random()]}.svg`} area="housePickImage" />
+      <Image src={`src/assets/${imageArray[npcPick]}.svg`} area="housePickImage" />
       <StyledTitle area="resultTitle">Проиграл!</StyledTitle>
       <StyledButton type="button" onClick={handleClick}>
         Играем ещё?

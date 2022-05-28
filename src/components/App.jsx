@@ -19,10 +19,10 @@ const MainPage = styled.div`
 
 const App = () => {
   const navigate = useNavigate();
-  const [imagePick, setImagePick] = useState('rock');
+  const [image, setImage] = useState('rock');
   const [isOpened, setIsOpened] = useState(false);
   const handleImagePick = ({ id }) => {
-    setImagePick(id);
+    setImage(id);
     navigate('game');
   };
 
@@ -43,10 +43,10 @@ const App = () => {
   return (
     <MainPage>
       <Header />
-      <ImageContext.Provider value={imagePick}>
+      <ImageContext.Provider value={image}>
         <Routes>
           <Route path="/" element={<PickScreen onImagePick={handleImagePick} />} />
-          <Route path="game" element={<GambleScreen imageName={imagePick} />} />
+          <Route path="game" element={<GambleScreen playerPick={image} />} />
         </Routes>
       </ImageContext.Provider>
       <Footer onModalOpen={handleModalOpen} />

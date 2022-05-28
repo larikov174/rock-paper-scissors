@@ -40,12 +40,12 @@ const StyledButton = styled.button`
   background-size: contain;
   &:hover {
     cursor: pointer;
-    opacity: 0.8;
+    opacity: 0.6;
     will-change: opacity;
     transition: opacity 0.4s;
   }
   &:active {
-    opacity: 0.5;
+    opacity: 1;
     transition: opacity 0.3s;
   }
 `;
