@@ -53,7 +53,7 @@ const StyledButton = styled.button`
 const Modal = ({ isOpened, isClosed }) => {
   const handleClick = () => isClosed();
   return (
-    <Overlay status={isOpened}>
+    <Overlay status={isOpened} onClick={handleClick}>
       <ImageWrapper>
         <StyledButton onClick={handleClick} />
         <StyledImage src={rulesImage} />

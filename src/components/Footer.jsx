@@ -5,7 +5,7 @@ const Container = styled.footer`
   width: 100%;
   max-width: 900px;
   padding: 0 32px;
-	margin-top: 50px;
+  margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
@@ -39,9 +39,9 @@ const Rules = styled.button`
   }
 `;
 
-const Footer = ({onModalOpen}) => {
+const Footer = ({ onModalOpen }) => {
   const currentDate = new Date();
-	const handleClick = () => onModalOpen({visible: true});
+  const handleClick = () => onModalOpen({ visible: true });
   return (
     <Container>
       <Credential>&copy; {currentDate.getFullYear()} Андрей Лариков</Credential>

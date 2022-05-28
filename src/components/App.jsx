@@ -30,16 +30,15 @@ const App = () => {
 
   const handleModalClose = () => setIsOpened(false);
 
-	useEffect(() =>{
-		const handleKeyPress = (e) => (e.key === 'Escape') && handleModalClose();
-		
-		document.addEventListener('keydown', handleKeyPress);
+  useEffect(() => {
+    const handleKeyPress = (e) => e.key === 'Escape' && handleModalClose();
 
-		return () => {
-			document.removeEventListener('keydown', handleKeyPress);
-		}
-	})
+    document.addEventListener('keydown', handleKeyPress);
 
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress);
+    };
+  });
 
   return (
     <MainPage>

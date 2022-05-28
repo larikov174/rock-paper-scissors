@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Container = styled.section`
   width: 100%;
-	margin-top: 50px;
+  margin-top: 50px;
   display: grid;
   justify-items: center;
   grid-template-columns: repeat(3, 1fr);
