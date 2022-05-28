@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import ImageContext from '../context/ImageContext';
 import styled from 'styled-components';
@@ -30,9 +30,16 @@ const App = () => {
 
   const handleModalClose = () => setIsOpened(false);
 
-	document.addEventListener('keydown', (e)=>{
-		if(e.key === 'Escape') handleModalClose();
+	useEffect(() =>{
+		const handleKeyPress = (e) => (e.key === 'Escape') && handleModalClose();
+		
+		document.addEventListener('keydown', handleKeyPress);
+
+		return () => {
+			document.removeEventListener('keydown', handleKeyPress);
+		}
 	})
+
 
   return (
     <MainPage>
