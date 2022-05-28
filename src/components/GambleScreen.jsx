@@ -73,11 +73,31 @@ const GambleScreen = ({ playerPick }) => {
   const navigate = useNavigate();
   const handleClick = () => navigate('/');
   const imageArray = ['rock', 'paper', 'scissors'];
-	const [npcPick, setNpcPick] = useState(0);
-	
-	useEffect(() => {
-		setNpcPick(() => Math.floor(Math.random() * 3));
-	},[])
+  const [npcPick, setNpcPick] = useState(0);
+  const [resultTitle, setResultTitle] = useState('заголовок');
+
+  useEffect(() => {
+    setNpcPick(() => Math.floor(Math.random() * 3));
+  }, []);
+
+  useEffect(() => {
+    const npcPickImage = imageArray[npcPick];
+    if (playerPick === npcPickImage) return setResultTitle('Ничья!');
+    switch (playerPick) {
+      case 'rock':
+        if (npcPickImage === 'scissors') return setResultTitle('Ты выиграл!');
+        if (npcPickImage === 'paper') return setResultTitle('Ты проиграл!');
+        break;
+      case 'scissors':
+        if (npcPickImage === 'paper') return setResultTitle('Ты выиграл!');
+        if (npcPickImage === 'rock') return setResultTitle('Ты проиграл!');
+        break;
+      case 'paper':
+        if (npcPickImage === 'rock') return setResultTitle('Ты выиграл!');
+        if (npcPickImage === 'scissors') return setResultTitle('Ты проиграл!');
+        break;
+    }
+  });
 
   return (
     <Container>
@@ -85,7 +105,7 @@ const GambleScreen = ({ playerPick }) => {
       <Image src={`src/assets/${playerPick}.svg`} area="playerPickImage" />
       <Title area="housePickText">Компьютер выбрал</Title>
       <Image src={`src/assets/${imageArray[npcPick]}.svg`} area="housePickImage" />
-      <StyledTitle area="resultTitle">Проиграл!</StyledTitle>
+      <StyledTitle area="resultTitle">{resultTitle}</StyledTitle>
       <StyledButton type="button" onClick={handleClick}>
         Играем ещё?
       </StyledButton>
