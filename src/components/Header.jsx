@@ -58,7 +58,7 @@ const ScoreResult = styled.p`
   color: #565468;
 `;
 
-const Header = () => {
+const Header = ({ score }) => {
   return (
     <MainContainer>
       <TitleContainer>
@@ -68,7 +68,7 @@ const Header = () => {
       </TitleContainer>
       <ScoreContainer>
         <ScoreTitle>очки</ScoreTitle>
-        <ScoreResult id="scoreResult">12</ScoreResult>
+        <ScoreResult>{score}</ScoreResult>
       </ScoreContainer>
     </MainContainer>
   );

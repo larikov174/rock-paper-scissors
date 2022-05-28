@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.section`
@@ -69,7 +69,8 @@ const StyledButton = styled.button`
   }
 `;
 
-const GambleScreen = ({ playerPick }) => {
+const GambleScreen = ({ playerPick, score }) => {
+	const location = useLocation();
   const navigate = useNavigate();
   const handleClick = () => navigate('/');
   const imageArray = ['rock', 'paper', 'scissors'];
@@ -89,6 +90,7 @@ const GambleScreen = ({ playerPick }) => {
         if (npcPickImage === 'paper') return setResultTitle('Ты проиграл!');
         break;
       case 'scissors':
+				console.log(npcPickImage, npcPick);
         if (npcPickImage === 'paper') return setResultTitle('Ты выиграл!');
         if (npcPickImage === 'rock') return setResultTitle('Ты проиграл!');
         break;
@@ -98,6 +100,20 @@ const GambleScreen = ({ playerPick }) => {
         break;
     }
   });
+
+  useEffect(() => {
+    switch (resultTitle) {
+      case 'Ты выиграл!':
+        score({ value: 1 });
+        break;
+      case 'Ты проиграл!':
+        score({ value: -1 });
+        break;
+      default:
+        score({ value: 0 });
+        break;
+    }
+  },[resultTitle, location]);
 
   return (
     <Container>

@@ -21,6 +21,7 @@ const App = () => {
   const navigate = useNavigate();
   const [image, setImage] = useState('rock');
   const [isOpened, setIsOpened] = useState(false);
+  const [gameScore, setGameScore] = useState(0);
   const handleImagePick = ({ id }) => {
     setImage(id);
     navigate('game');
@@ -29,6 +30,8 @@ const App = () => {
   const handleModalOpen = ({ visible }) => setIsOpened(visible);
 
   const handleModalClose = () => setIsOpened(false);
+
+  const handleScore = ({ value }) => setGameScore(() => gameScore + value);
 
   useEffect(() => {
     const handleKeyPress = (e) => e.key === 'Escape' && handleModalClose();
@@ -42,11 +45,11 @@ const App = () => {
 
   return (
     <MainPage>
-      <Header />
+      <Header score={gameScore} />
       <ImageContext.Provider value={image}>
         <Routes>
           <Route path="/" element={<PickScreen onImagePick={handleImagePick} />} />
-          <Route path="game" element={<GambleScreen playerPick={image} />} />
+          <Route path="game" element={<GambleScreen playerPick={image} score={handleScore} />} />
         </Routes>
       </ImageContext.Provider>
       <Footer onModalOpen={handleModalOpen} />
