@@ -20,10 +20,15 @@ const MainPage = styled.div`
 const App = () => {
   const navigate = useNavigate();
   const [imagePick, setImagePick] = useState('rock');
+  const [isOpened, setIsOpened] = useState(false);
   const handleImagePick = ({ id }) => {
     setImagePick(id);
     navigate('game');
   };
+
+  const handleModalOpen = ({ visible }) => setIsOpened(visible);
+
+  const handleModalClose = () => setIsOpened(false);
 
   return (
     <MainPage>
@@ -34,8 +39,8 @@ const App = () => {
           <Route path="game" element={<GambleScreen imageName={imagePick} />} />
         </Routes>
       </ImageContext.Provider>
-      <Footer />
-			<Modal />
+      <Footer onModalOpen={handleModalOpen} />
+      <Modal isOpened={isOpened} isClosed={handleModalClose} />
     </MainPage>
   );
 };

@@ -39,12 +39,13 @@ const Rules = styled.button`
   }
 `;
 
-const Footer = () => {
+const Footer = ({onModalOpen}) => {
   const currentDate = new Date();
+	const handleClick = () => onModalOpen({visible: true});
   return (
     <Container>
       <Credential>&copy; {currentDate.getFullYear()} Андрей Лариков</Credential>
-      <Rules>правила</Rules>
+      <Rules onClick={handleClick}>правила</Rules>
     </Container>
   );
 };
