@@ -30,6 +30,10 @@ const App = () => {
 
   const handleModalClose = () => setIsOpened(false);
 
+	document.addEventListener('keydown', (e)=>{
+		if(e.key === 'Escape') handleModalClose();
+	})
+
   return (
     <MainPage>
       <Header />
