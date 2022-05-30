@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.section`
@@ -69,58 +69,43 @@ const StyledButton = styled.button`
   }
 `;
 
-const GambleScreen = ({ playerPick, score }) => {
-	const location = useLocation();
+const GambleScreen = ({ playerPick, npcPick, score }) => {
   const navigate = useNavigate();
-  const handleClick = () => navigate('/');
-  const imageArray = ['rock', 'paper', 'scissors'];
-  const [npcPick, setNpcPick] = useState(0);
   const [resultTitle, setResultTitle] = useState('заголовок');
+	
+  const handleClick = () => navigate('/');
+	
+  const handleWin = () => {
+		setResultTitle('Ты выиграл!');
+    score({ value: 1 });
+  };
+	
+  const handleLoose = () => {
+    setResultTitle('Ты проиграл!');
+    score({ value: -1 });
+  };
+	
+  const handleDraw = () => {
+		setResultTitle('Ничья!');
+    score({ value: 0 });
+  };
 
   useEffect(() => {
-    setNpcPick(() => Math.floor(Math.random() * 3));
+    if (playerPick === npcPick) return handleDraw();
+    if ((playerPick = 'rock' && npcPick === 'scissors')) return handleWin();
+    if ((playerPick = 'rock' && npcPick === 'paper'))  return handleLoose();
+    if ((playerPick = 'scissors' && npcPick === 'paper'))  return handleWin();
+    if ((playerPick = 'scissors' && npcPick === 'rock'))  return handleLoose();
+    if ((playerPick = 'paper' && npcPick === 'rock'))  return handleWin();
+    if ((playerPick = 'paper' && npcPick === 'scissors'))  return handleLoose();
   }, []);
-
-  useEffect(() => {
-    const npcPickImage = imageArray[npcPick];
-    if (playerPick === npcPickImage) return setResultTitle('Ничья!');
-    switch (playerPick) {
-      case 'rock':
-        if (npcPickImage === 'scissors') return setResultTitle('Ты выиграл!');
-        if (npcPickImage === 'paper') return setResultTitle('Ты проиграл!');
-        break;
-      case 'scissors':
-				console.log(npcPickImage, npcPick);
-        if (npcPickImage === 'paper') return setResultTitle('Ты выиграл!');
-        if (npcPickImage === 'rock') return setResultTitle('Ты проиграл!');
-        break;
-      case 'paper':
-        if (npcPickImage === 'rock') return setResultTitle('Ты выиграл!');
-        if (npcPickImage === 'scissors') return setResultTitle('Ты проиграл!');
-        break;
-    }
-  });
-
-  useEffect(() => {
-    switch (resultTitle) {
-      case 'Ты выиграл!':
-        score({ value: 1 });
-        break;
-      case 'Ты проиграл!':
-        score({ value: -1 });
-        break;
-      default:
-        score({ value: 0 });
-        break;
-    }
-  },[resultTitle, location]);
 
   return (
     <Container>
       <Title area="playerPickText">Ты выбрал</Title>
       <Image src={`src/assets/${playerPick}.svg`} area="playerPickImage" />
       <Title area="housePickText">Компьютер выбрал</Title>
-      <Image src={`src/assets/${imageArray[npcPick]}.svg`} area="housePickImage" />
+      <Image src={`src/assets/${npcPick}.svg`} area="housePickImage" />
       <StyledTitle area="resultTitle">{resultTitle}</StyledTitle>
       <StyledButton type="button" onClick={handleClick}>
         Играем ещё?

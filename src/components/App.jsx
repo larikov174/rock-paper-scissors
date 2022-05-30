@@ -19,11 +19,13 @@ const MainPage = styled.div`
 
 const App = () => {
   const navigate = useNavigate();
-  const [image, setImage] = useState('rock');
+  const [image, setImage] = useState('');
+	const [npcPick, setNpcPick] = useState('');
   const [isOpened, setIsOpened] = useState(false);
   const [gameScore, setGameScore] = useState(0);
-  const handleImagePick = ({ id }) => {
-    setImage(id);
+  const handleImagePick = ({ playerPick, npcPick }) => {
+    setImage(playerPick);
+		setNpcPick(npcPick);
     navigate('game');
   };
 
@@ -49,7 +51,7 @@ const App = () => {
       <ImageContext.Provider value={image}>
         <Routes>
           <Route path="/" element={<PickScreen onImagePick={handleImagePick} />} />
-          <Route path="game" element={<GambleScreen playerPick={image} score={handleScore} />} />
+          <Route path="game" element={<GambleScreen playerPick={image} npcPick={npcPick} score={handleScore} />} />
         </Routes>
       </ImageContext.Provider>
       <Footer onModalOpen={handleModalOpen} />

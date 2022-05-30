@@ -23,8 +23,10 @@ const StyledCircle = styled.circle`
 `;
 
 const PickScreen = ({ onImagePick }) => {
+	const imageArray = ['rock', 'scissors', 'paper'];
+	const npcPick = imageArray[Math.floor(Math.random() * 3)];
   const onClickNavigation = (e) => {
-    onImagePick({ id: e.target.id });
+    onImagePick({ playerPick: e.target.id, npcPick });
   };
 	
   return (
