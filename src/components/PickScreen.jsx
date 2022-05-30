@@ -3,64 +3,53 @@ import rock from '../assets/rock.svg';
 import paper from '../assets/paper.svg';
 import scissors from '../assets/scissors.svg';
 
-const Container = styled.svg`
-  width: 100%;
-  height: auto;
-  transform: translateY(min(5vw, 50px));
+const StyledContainer = styled.div`
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	grid-template-areas: 
+	'rock scissors'
+	'paper paper';
+	justify-items: center;
+	width: 100%;
+	min-height: 500px;
+	margin-top: 20px;
 `;
 
-const StyledCircle = styled.circle`
+const Image = styled.img`
+  grid-area: ${(props) => props.area};
+  width: clamp(150px, 200px, 30vw);
+  height: clamp(150px, 200px, 30vw);
+  position: ${(props) => props.position};
+  left: ${(props) => props.left};
+  top: ${(props) => props.top};
+  border-radius: 50%;
   &:hover {
     box-shadow: 0 0 10px 30px #ffffff24;
-    filter: drop-shadow(0 0 30px rgb(255 255 255 / 0.4));
     cursor: pointer;
-    will-change: opacity;
-    transition: filter 0.3s;
+    will-change: transform;
+    transition: box-shadow 0.3s;
   }
   &:active {
-    filter: drop-shadow(0 0 20px rgb(187 187 187));
+    box-shadow: 0 0 20px #bbbbbb;
   }
 `;
 
 const PickScreen = ({ onImagePick }) => {
 	const imageArray = ['rock', 'scissors', 'paper'];
 	const npcPick = imageArray[Math.floor(Math.random() * 3)];
-  const onClickNavigation = (e) => {
-    onImagePick({ playerPick: e.target.id, npcPick });
+
+  const handleClick = (e) => {
+		const playerPick = e.target.id;
+    onImagePick({ playerPick, npcPick });
   };
 	
   return (
-    <Container viewBox="0 0 900 900">
-      <defs>
-        <pattern
-          id="rockImage"
-          x="0"
-          y="0"
-          width="1"
-          height="1"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="xMidYMid slice">
-          <image width="100" height="100" href={rock} />
-        </pattern>
-        <pattern
-          id="scissorsImage"
-          x="0"
-          y="0"
-          width="1"
-          height="1"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="xMidYMid slice">
-          <image width="100" height="100" href={scissors} />
-        </pattern>
-        <pattern id="paperImage" x="0" y="0" width="1" height="1" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
-          <image width="100" height="100" href={paper} />
-        </pattern>
-      </defs>
-      <polyline points="300,200 600,200 450,500 300,200" style={{ fill: 'none' }} stroke="#0000003b" strokeWidth="20" />
-      <StyledCircle id="rock" cx={300} cy={200} r={120} fill="url(#rockImage)" onClick={onClickNavigation} />
-      <StyledCircle id="scissors" cx={600} cy={200} r={120} fill="url(#scissorsImage)" onClick={onClickNavigation} />
-      <StyledCircle id="paper" cx={450} cy={500} r={120} fill="url(#paperImage)" onClick={onClickNavigation} />
-    </Container>
+		<StyledContainer>
+			<Image id='rock' src={rock} area="rock" onClick={handleClick}/>
+			<Image id='scissors' src={scissors} area="scissors" onClick={handleClick}/>
+			<Image id='paper' src={paper} area="paper" onClick={handleClick}/>
+		</StyledContainer>
   );
 };
 

@@ -72,33 +72,35 @@ const StyledButton = styled.button`
 const GambleScreen = ({ playerPick, npcPick, score }) => {
   const navigate = useNavigate();
   const [resultTitle, setResultTitle] = useState('заголовок');
-	
+
   const handleClick = () => navigate('/');
-	
+
   const handleWin = () => {
-		setResultTitle('Ты выиграл!');
+    setResultTitle('Ты выиграл!');
     score({ value: 1 });
   };
-	
+
   const handleLoose = () => {
     setResultTitle('Ты проиграл!');
     score({ value: -1 });
   };
-	
+
   const handleDraw = () => {
-		setResultTitle('Ничья!');
+    setResultTitle('Ничья!');
     score({ value: 0 });
   };
 
+	
   useEffect(() => {
-    if (playerPick === npcPick) return handleDraw();
-    if ((playerPick = 'rock' && npcPick === 'scissors')) return handleWin();
-    if ((playerPick = 'rock' && npcPick === 'paper'))  return handleLoose();
-    if ((playerPick = 'scissors' && npcPick === 'paper'))  return handleWin();
-    if ((playerPick = 'scissors' && npcPick === 'rock'))  return handleLoose();
-    if ((playerPick = 'paper' && npcPick === 'rock'))  return handleWin();
-    if ((playerPick = 'paper' && npcPick === 'scissors'))  return handleLoose();
-  }, []);
+		console.log(playerPick, npcPick);
+		if (playerPick === npcPick) return handleDraw();
+		if ((playerPick = 'rock' && npcPick === 'scissors')) return handleWin();
+		if ((playerPick = 'rock' && npcPick === 'paper')) return handleLoose();
+		if ((playerPick = 'scissors' && npcPick === 'paper')) return handleWin();
+		if ((playerPick = 'scissors' && npcPick === 'rock')) return handleLoose();
+		if ((playerPick = 'paper' && npcPick === 'rock')) return handleWin();
+		if ((playerPick = 'paper' && npcPick === 'scissors')) return handleLoose();
+  }, [playerPick]);
 
   return (
     <Container>
