@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import rock from '../assets/rock.svg';
+import paper from '../assets/paper.svg';
+import scissors from '../assets/scissors.svg';
 
 const Container = styled.section`
   width: 100%;
@@ -72,6 +75,15 @@ const StyledButton = styled.button`
 const GambleScreen = ({ playerPick, npcPick, score }) => {
   const navigate = useNavigate();
   const [resultTitle, setResultTitle] = useState('заголовок');
+  let playerImage;
+  let npcImage;
+
+	if (playerPick === 'rock') playerImage = rock;
+	if (playerPick === 'scissors') playerImage = scissors;
+	if (playerPick === 'paper') playerImage = paper;
+	if (npcPick === 'rock') npcImage = rock;
+	if (npcPick === 'scissors') npcImage = scissors;
+	if (npcPick === 'paper') npcImage = paper;
 
   const handleClick = () => navigate('/');
 
@@ -89,25 +101,23 @@ const GambleScreen = ({ playerPick, npcPick, score }) => {
     setResultTitle('Ничья!');
     score({ value: 0 });
   };
-
 	
   useEffect(() => {
-		console.log(playerPick, npcPick);
-		if (playerPick === npcPick) return handleDraw();
-		if ((playerPick = 'rock' && npcPick === 'scissors')) return handleWin();
-		if ((playerPick = 'rock' && npcPick === 'paper')) return handleLoose();
-		if ((playerPick = 'scissors' && npcPick === 'paper')) return handleWin();
-		if ((playerPick = 'scissors' && npcPick === 'rock')) return handleLoose();
-		if ((playerPick = 'paper' && npcPick === 'rock')) return handleWin();
-		if ((playerPick = 'paper' && npcPick === 'scissors')) return handleLoose();
+    if (playerPick === npcPick) return handleDraw();
+    if ((playerPick = 'rock' && npcPick === 'scissors')) return handleWin();
+    if ((playerPick = 'rock' && npcPick === 'paper')) return handleLoose();
+    if ((playerPick = 'scissors' && npcPick === 'paper')) return handleWin();
+    if ((playerPick = 'scissors' && npcPick === 'rock')) return handleLoose();
+    if ((playerPick = 'paper' && npcPick === 'rock')) return handleWin();
+    if ((playerPick = 'paper' && npcPick === 'scissors')) return handleLoose();
   }, [playerPick]);
 
   return (
     <Container>
       <Title area="playerPickText">Ты выбрал</Title>
-      <Image src={`src/assets/${playerPick}.svg`} area="playerPickImage" />
+      <Image src={playerImage} area="playerPickImage" />
       <Title area="housePickText">Компьютер выбрал</Title>
-      <Image src={`src/assets/${npcPick}.svg`} area="housePickImage" />
+      <Image src={npcImage} area="housePickImage" />
       <StyledTitle area="resultTitle">{resultTitle}</StyledTitle>
       <StyledButton type="button" onClick={handleClick}>
         Играем ещё?
