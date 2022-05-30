@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import ImageContext from '../context/ImageContext';
 import styled from 'styled-components';
 import Header from './Header';
 import PickScreen from './PickScreen';
@@ -48,12 +47,10 @@ const App = () => {
   return (
     <MainPage>
       <Header score={gameScore} />
-      <ImageContext.Provider value={image}>
         <Routes>
           <Route path="/" element={<PickScreen onImagePick={handleImagePick} />} />
           <Route path="game" element={<GambleScreen playerPick={image} npcPick={npcPick} score={handleScore} />} />
         </Routes>
-      </ImageContext.Provider>
       <Footer onModalOpen={handleModalOpen} />
       <Modal isOpened={isOpened} isClosed={handleModalClose} />
     </MainPage>
