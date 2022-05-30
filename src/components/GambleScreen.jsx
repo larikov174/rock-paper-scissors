@@ -17,7 +17,7 @@ const Container = styled.section`
   @media screen and (max-width: 700px) {
     grid-row-gap: 20px;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 2fr repeat(3, 1fr);
+    grid-template-rows: max-content 50px 1fr 50px;
     grid-template-areas:
       'playerPickImage housePickImage'
       'playerPickText housePickText'
