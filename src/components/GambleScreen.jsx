@@ -75,15 +75,8 @@ const StyledButton = styled.button`
 const GambleScreen = ({ playerPick, npcPick, score }) => {
   const navigate = useNavigate();
   const [resultTitle, setResultTitle] = useState('заголовок');
-  let playerImage;
-  let npcImage;
-
-	if (playerPick === 'rock') playerImage = rock;
-	if (playerPick === 'scissors') playerImage = scissors;
-	if (playerPick === 'paper') playerImage = paper;
-	if (npcPick === 'rock') npcImage = rock;
-	if (npcPick === 'scissors') npcImage = scissors;
-	if (npcPick === 'paper') npcImage = paper;
+  const [playerImage, setPlayerImage] = useState('');
+  const [npcImage, setNpcImage] = useState('');
 
   const handleClick = () => navigate('/');
 
@@ -101,21 +94,55 @@ const GambleScreen = ({ playerPick, npcPick, score }) => {
     setResultTitle('Ничья!');
     score({ value: 0 });
   };
-	
+
   useEffect(() => {
-    if (playerPick === npcPick) return handleDraw();
-    if ((playerPick = 'rock' && npcPick === 'scissors')) return handleWin();
-    if ((playerPick = 'rock' && npcPick === 'paper')) return handleLoose();
-    if ((playerPick = 'scissors' && npcPick === 'paper')) return handleWin();
-    if ((playerPick = 'scissors' && npcPick === 'rock')) return handleLoose();
-    if ((playerPick = 'paper' && npcPick === 'rock')) return handleWin();
-    if ((playerPick = 'paper' && npcPick === 'scissors')) return handleLoose();
-  }, [playerPick]);
+    if (playerPick === 'rock') {
+      setPlayerImage(rock);
+      if (npcPick === 'rock') {
+        setNpcImage(rock);
+        handleDraw();
+      } else if (npcPick === 'scissors') {
+        setNpcImage(scissors);
+        handleWin();
+      } else {
+        setNpcImage(paper);
+        handleLoose();
+      }
+    }
+
+    if (playerPick === 'scissors') {
+      setPlayerImage(scissors);
+      if (npcPick === 'rock') {
+        setNpcImage(rock);
+        handleLoose();
+      } else if (npcPick === 'scissors') {
+        setNpcImage(scissors);
+        handleDraw();
+      } else {
+        setNpcImage(paper);
+        handleWin();
+      }
+    }
+
+    if (playerPick === 'paper') {
+      setPlayerImage(paper);
+      if (npcPick === 'rock') {
+        setNpcImage(rock);
+        handleWin();
+      } else if (npcPick === 'scissors') {
+        setNpcImage(scissors);
+        handleLoose();
+      } else {
+        setNpcImage(paper);
+        handleDraw();
+      }
+    }
+  }, []);
 
   return (
     <Container>
       <Title area="playerPickText">Ты выбрал</Title>
-      <Image src={playerImage} area="playerPickImage" />
+      <Image src={playerImage !== undefined ? playerImage : rock} area="playerPickImage" />
       <Title area="housePickText">Компьютер выбрал</Title>
       <Image src={npcImage} area="housePickImage" />
       <StyledTitle area="resultTitle">{resultTitle}</StyledTitle>
