@@ -2,4 +2,4 @@
 Rock, paper, scissors  simple game
 
 ## Камень-ножницы-бумага
-Технологии: Vite.js + React
+Технологии: Vite.js + React + Styled-components
